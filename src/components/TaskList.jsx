@@ -12,7 +12,7 @@ const TaskList = () => {
     const [refreshing, setRefreshing] = useState(false);
     const [tasks, setTasks] = useState([]);
     const [activeTasks, setActiveTasks] = useState([]);
-    const [completedTasks, setCompletedTasks] = useState([]);
+    const [completedTasks, setCompletedTasks] = useState();
 
     const handleFormSubmit = (task) => {
         console.log('task create : ', task);
@@ -37,7 +37,7 @@ const TaskList = () => {
                 setTasks(json);
                 setActiveTasks(json.filter(task => task.completed === false));
                 setCompletedTasks(json.filter(task => task.completed === true));
-            }).then(console.log('fetch completed : ', tasks))
+            }).then(console.log('fetch completed'));
     }
 
     const onRefresh = useCallback(async () => {
@@ -53,7 +53,7 @@ const TaskList = () => {
     useEffect(() => {
         refresh();
     }, [onRefresh])
-    
+
     return (
         <Layout className="layout">
             <Content style={{ padding: '0 50px' }}>
@@ -65,13 +65,13 @@ const TaskList = () => {
                             <br />
                             <Tabs defaultActiveKey="all">
                                 <TabPane tab="All" key="all">
-                                    <TaskTab task={tasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask}/>
+                                    <TaskTab task={tasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
                                 <TabPane tab="Active" key="active">
-                                <TaskTab task={activeTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask}/>
+                                    <TaskTab task={activeTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
                                 <TabPane tab="Complete" key="complete">
-                                <TaskTab task={completedTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask}/>
+                                    <TaskTab task={completedTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
                             </Tabs>
                         </Col>
