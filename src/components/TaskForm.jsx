@@ -20,13 +20,13 @@ const TaskForm = ({ onFormSubmit }) => {
             form={form}
             onFinish={onFinish}
             layout="horizontal"
-            className="task-form">
+            className="task-form">  
             <Row gutter={20}>
                 <Col xs={24} sm={24} md={17} lg={19} xl={20}>
                     <Form.Item
                         name={'title'}
                         rules={[{ required: true, message: 'Please input your title!' }]}>
-                        <Input placeholder="Is it done??" />
+                        <Input placeholder="Task title" />
                     </Form.Item>
                 </Col>
                 <Col xs={24} sm={24} md={7} lg={5} xl={4}>

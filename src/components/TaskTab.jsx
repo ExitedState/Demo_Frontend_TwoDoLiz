@@ -11,8 +11,8 @@ const TaskTab = ({ tasks, onTaskRemoval, onTaskToggle }) => {
                 renderItem={(task) => (
                     <TaskItem
                         task={task}
-                        onTaskRemoval={onTaskRemoval}
                         onTaskToggle={onTaskToggle}
+                        onTaskRemoval={onTaskRemoval}
                     />
                 )}
                 pagination={{

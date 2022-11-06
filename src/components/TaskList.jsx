@@ -65,13 +65,13 @@ const TaskList = () => {
                             <br />
                             <Tabs defaultActiveKey="all">
                                 <TabPane tab="All" key="all">
-                                    <TaskTab task={tasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
+                                    <TaskTab tasks={tasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
                                 <TabPane tab="Active" key="active">
-                                    <TaskTab task={activeTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
+                                    <TaskTab tasks={activeTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
                                 <TabPane tab="Complete" key="complete">
-                                    <TaskTab task={completedTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
+                                    <TaskTab tasks={completedTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
                             </Tabs>
                         </Col>
