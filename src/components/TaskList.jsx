@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import './TaskList.css';
-import { Row, Col, Tabs, Layout, message, Button } from "antd";
+import { Row, Col, Tabs, Layout, message } from "antd";
 import TaskTab from "./TaskTab";
 import TaskForm from "./TaskForm";
 import { createTask, loadTasks, updateTask, deleteTask } from '../services/taskService.js';
@@ -30,11 +30,6 @@ const TaskList = () => {
         task.completed = !task.completed;
         updateTask(task).then(onRefresh());
         message.info('Task status updated successfully');
-    }
-
-    const handleUpdateTask = (task) => {
-        updateTask(task).then(onRefresh());
-        message.info('Task updated successfully');
     }
 
     const refresh = () => {
