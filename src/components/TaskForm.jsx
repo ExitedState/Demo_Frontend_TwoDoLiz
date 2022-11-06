@@ -5,22 +5,22 @@ import { PlusCircleFilled } from '@ant-design/icons';
 const TaskForm = ({ onFormSubmit }) => {
     const [form] = Form.useForm();
 
-    const onFinish = (values) => {
+    const onFinish = () => {
         onFormSubmit({
             title: form.getFieldValue('title'),
             detail: form.getFieldValue('detail'),
             completed: false,
         });
-        console.log('Received values of form: ', values);
+        console.log('Received values of form: ', form.getFieldValue('title'));
         form.resetFields();
     }
 
     return (
-        <Form>
-            form = {form}
-            onFinish = {onFinish}
-            layout = "horizontal"
-            className = "task-form"
+        <Form
+            form={form}
+            onFinish={onFinish}
+            layout="horizontal"
+            className="task-form">
             <Row gutter={20}>
                 <Col xs={24} sm={24} md={17} lg={19} xl={20}>
                     <Form.Item>
@@ -36,7 +36,7 @@ const TaskForm = ({ onFormSubmit }) => {
                     </Button>
                 </Col>
             </Row>
-        </Form>
+        </Form >
     )
 }
 
