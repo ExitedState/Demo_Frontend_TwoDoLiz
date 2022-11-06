@@ -23,9 +23,9 @@ const TaskForm = ({ onFormSubmit }) => {
             className="task-form">
             <Row gutter={20}>
                 <Col xs={24} sm={24} md={17} lg={19} xl={20}>
-                    <Form.Item>
-                        name = {'title'}
-                        rules = {[{ required: true, message: 'Please input your title!' }]}
+                    <Form.Item
+                        name={'title'}
+                        rules={[{ required: true, message: 'Please input your title!' }]}>
                         <Input placeholder="Is it done??" />
                     </Form.Item>
                 </Col>
