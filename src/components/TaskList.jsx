@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import './TaskList.css';
-import { Row, Col, Tabs, Layout, message } from "antd";
+import { Row, Col, Tabs, Layout, message, Button } from "antd";
 import TaskTab from "./TaskTab";
 import TaskForm from "./TaskForm";
 import { createTask, loadTasks, updateTask, deleteTask } from '../services/taskService.js';
@@ -10,6 +10,7 @@ const { Content } = Layout;
 
 const TaskList = () => {
     const [refreshing, setRefreshing] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [tasks, setTasks] = useState([]);
     const [activeTasks, setActiveTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState();
@@ -29,6 +30,11 @@ const TaskList = () => {
         task.completed = !task.completed;
         updateTask(task).then(onRefresh());
         message.info('Task status updated successfully');
+    }
+
+    const handleUpdateTask = (task) => {
+        updateTask(task).then(onRefresh());
+        message.info('Task updated successfully');
     }
 
     const refresh = () => {
@@ -64,9 +70,9 @@ const TaskList = () => {
                             <TaskForm onFormSubmit={handleFormSubmit} />
                             <br />
                             <Tabs defaultActiveKey="all">
-                                <TabPane tab="All" key="all">
+                                {/* <TabPane tab="All" key="all">
                                     <TaskTab tasks={tasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
-                                </TabPane>
+                                </TabPane> */}
                                 <TabPane tab="Active" key="active">
                                     <TaskTab tasks={activeTasks} onTaskToggle={handleToggleTaskStatus} onTaskRemoval={handleRemoveTask} />
                                 </TabPane>
@@ -78,7 +84,8 @@ const TaskList = () => {
                     </Row>
                 </div>
             </Content>
-        </Layout>)
+        </Layout>
+    )
 }
 
 export default TaskList;

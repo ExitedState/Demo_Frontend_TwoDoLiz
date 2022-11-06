@@ -1,5 +1,22 @@
-.tasklist{
+.tasklist {
     margin: 24px;
     padding: 24px;
     background-color: #fff;
+}
+
+.ant-picker-input>input::placeholder {
+    color: rgb(49, 43, 43);
+}
+
+.ant-picker-input>input {
+    color: rgb(23, 117, 89);
+}
+
+.ant-picker-input>input:hover {
+    color: rgb(188, 42, 42);
+}
+
+/* change all ant placeholder */
+.ant-input::placeholder {
+    color: rgb(49, 43, 43);
 }

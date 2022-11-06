@@ -20,8 +20,9 @@ export const createTask = async (task) => {
             title: task.title,
             detail: task.detail,
             completed: task.completed,
-            completedAt : task.completAt,
+            completedAt : task.completedAt,
             tag : task.tag,
+            hasCompletedDate : task.hasCompletedDate,
         }),
     });
     return await res.json();
@@ -38,8 +39,9 @@ export const updateTask = async (task) => {
             title: task.title,
             detail: task.detail,
             completed: task.completed,
-            completedAt : task.completAt,
+            completedAt : task.completedAt,
             tag : task.tag,
+            hasCompletedDate: task.hasCompletedDate,
         }),
     });
     return await res.json();
@@ -51,3 +53,10 @@ export const deleteTask = async (id) => {
     });
     return await res.json();
 };
+
+export const deleteAllTasks = async () => {
+    const res = await fetch(baseUrl, {
+        method: 'DELETE',
+    });
+    return await res.json();
+}

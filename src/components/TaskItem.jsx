@@ -32,6 +32,16 @@ const Task = ({ task, onTaskRemoval, onTaskToggle }) => {
                 <Tag color={task.completed ? 'cyan' : 'red'} className="task-completed-tag">
                     {task.title}
                 </Tag>
+                <div className="task-item-details">
+                    <span className="task-item-detail-value">{task.detail}</span>
+                </div>
+                <div className="task-item-completedAt">
+                    {/* display only YYYY/MM/DD */}
+                    <span className="task-item-completedAt-value">{task.completedAt ? `deadline : ${task.completedAt.slice(0, 10)}` : null}</span>
+                </div>
+                <div className="task-item-tag">
+                    <span className="task-item-tag-value">{task.tag ? `Tag : ${task.tag}` : null}</span>
+                </div>
             </div>
         </List.Item>
     )
